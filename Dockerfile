@@ -20,6 +20,7 @@ RUN apt-get install libpq-dev -y
 COPY --from=build-stage /app/wave-app/target/release/wave-app .
 CMD ["./wave-app"]
 
+
 # dev
 FROM rust:1.57.0 AS develop
 WORKDIR /app
