@@ -1,0 +1,20 @@
+[package]
+name = "wave-app"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+diesel = { version = "1.4.4", features = ["postgres","r2d2"] }
+dotenv = "0.15.0"
+config = "0.11.0"
+serde = {version = "1.0.131", features = ["derive"]}
+lazy_static = "1.4.0"
+once_cell = "1.9.0"
+log = "0.4.0"
+simplelog = "0.11.1"
+getset = "0.1.2"
+actix-web = "3.3.2"
+r2d2 = "0.8.9"
+anyhow = { version = "1", features = ["backtrace"] }
