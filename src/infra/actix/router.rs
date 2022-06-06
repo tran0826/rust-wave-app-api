@@ -1,5 +1,10 @@
 use super::handlers;
-use crate::{config::CONFIG, domain::models::{stage::stage_repository::StageRepository, score::score_repository::ScoreRepository}};
+use crate::{
+    config::CONFIG,
+    domain::models::{
+        score::score_repository::ScoreRepository, stage::stage_repository::StageRepository,
+    },
+};
 use actix_web::{middleware::Logger, App, HttpServer};
 use diesel::{
     r2d2::{ConnectionManager, Pool},
@@ -38,6 +43,7 @@ impl RequestContext {
     pub fn new() -> RequestContext {
         let manager = ConnectionManager::<PgConnection>::new(&CONFIG.database_url);
         let pool = Pool::builder()
+            .max_size(4)
             .build(manager)
             .expect("Failed to create DB connection pool.");
 
