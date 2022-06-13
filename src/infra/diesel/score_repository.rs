@@ -73,7 +73,7 @@ impl ScoreRepository for ScoreRepositoryImpl {
         match score
             .filter(score::stage_id.eq(num))
             .order(clear_time.asc())
-            .limit(50)
+            .limit(100)
             .load::<ScoreEntity>(&conn)
         {
             Ok(result) => Ok(result
